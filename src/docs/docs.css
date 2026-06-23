@@ -1,0 +1,489 @@
+/*
+ * Alpine Admin — Documentation styles
+ * ------------------------------------------------------------------
+ * Fully self-contained. Every rule is scoped under `.alpine-docs`, so
+ * this file shares nothing with the main app (no Tailwind, no shadcn).
+ * Delete the `src/docs` folder and these styles disappear with it.
+ */
+
+.alpine-docs {
+  --doc-bg: #ffffff;
+  --doc-bg-soft: #f7f8fa;
+  --doc-surface: #ffffff;
+  --doc-border: #e6e8ec;
+  --doc-text: #15181e;
+  --doc-muted: #5b6472;
+  --doc-primary: #6d28d9;
+  --doc-primary-2: #2563eb;
+  --doc-accent: #ec4899;
+  --doc-code-bg: #0f1117;
+  --doc-code-text: #e6e8ef;
+  --doc-code-border: #20242e;
+  --doc-radius: 14px;
+  --doc-shadow: 0 1px 2px rgba(16, 18, 23, 0.04), 0 8px 24px rgba(16, 18, 23, 0.06);
+
+  background: var(--doc-bg);
+  color: var(--doc-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.alpine-docs.dark {
+  --doc-bg: #0b0d12;
+  --doc-bg-soft: #11141b;
+  --doc-surface: #12151c;
+  --doc-border: #232733;
+  --doc-text: #eef0f4;
+  --doc-muted: #9aa3b2;
+  --doc-primary: #a78bfa;
+  --doc-primary-2: #60a5fa;
+  --doc-accent: #f472b6;
+  --doc-code-bg: #0a0c11;
+  --doc-code-text: #e6e8ef;
+  --doc-code-border: #1c202a;
+  --doc-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.alpine-docs * {
+  box-sizing: border-box;
+}
+
+.alpine-docs a {
+  color: var(--doc-primary-2);
+  text-decoration: none;
+}
+.alpine-docs a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Layout ---------------------------------------------------- */
+.alpine-docs__shell {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 40px;
+}
+
+.alpine-docs__sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 28px 8px 28px 0;
+}
+
+.alpine-docs__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.alpine-docs__brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--doc-primary), var(--doc-accent));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 16px;
+}
+.alpine-docs__brand-sub {
+  color: var(--doc-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 22px 40px;
+}
+
+.alpine-docs__nav-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--doc-muted);
+  margin: 18px 12px 6px;
+}
+.alpine-docs__nav a {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 9px;
+  color: var(--doc-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.alpine-docs__nav a:hover {
+  background: var(--doc-bg-soft);
+  color: var(--doc-text);
+  text-decoration: none;
+}
+.alpine-docs__nav a.is-active {
+  background: color-mix(in srgb, var(--doc-primary) 14%, transparent);
+  color: var(--doc-primary);
+  font-weight: 600;
+}
+
+.alpine-docs__main {
+  padding: 28px 0 120px;
+  min-width: 0;
+}
+
+/* ---- Topbar ---------------------------------------------------- */
+.alpine-docs__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.alpine-docs__actions {
+  display: flex;
+  gap: 8px;
+}
+.alpine-docs__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--doc-border);
+  background: var(--doc-surface);
+  color: var(--doc-text);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.05s;
+}
+.alpine-docs__btn:hover {
+  border-color: var(--doc-primary);
+}
+.alpine-docs__btn:active {
+  transform: translateY(1px);
+}
+.alpine-docs__btn--primary {
+  background: linear-gradient(135deg, var(--doc-primary), var(--doc-primary-2));
+  border: none;
+  color: #fff;
+}
+
+/* ---- Hero ------------------------------------------------------ */
+.alpine-docs__hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--doc-border);
+  border-radius: 22px;
+  padding: 44px 40px;
+  margin: 14px 0 36px;
+  background:
+    radial-gradient(900px 320px at 0% -20%, color-mix(in srgb, var(--doc-primary) 22%, transparent), transparent),
+    radial-gradient(700px 320px at 100% 0%, color-mix(in srgb, var(--doc-accent) 18%, transparent), transparent),
+    var(--doc-bg-soft);
+}
+.alpine-docs__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--doc-primary);
+  background: color-mix(in srgb, var(--doc-primary) 12%, transparent);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.alpine-docs__hero h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 16px 0 12px;
+  font-weight: 800;
+}
+.alpine-docs__hero h1 .grad {
+  background: linear-gradient(120deg, var(--doc-primary), var(--doc-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.alpine-docs__hero p {
+  color: var(--doc-muted);
+  font-size: 18px;
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* ---- Sections -------------------------------------------------- */
+.alpine-docs__section {
+  scroll-margin-top: 24px;
+  padding-top: 28px;
+  margin-top: 28px;
+  border-top: 1px solid var(--doc-border);
+}
+.alpine-docs__section:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+.alpine-docs h2 {
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+.alpine-docs h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 28px 0 8px;
+}
+.alpine-docs__lead {
+  color: var(--doc-muted);
+  margin: 0 0 18px;
+}
+.alpine-docs p {
+  margin: 0 0 14px;
+}
+
+/* ---- Cards & grid --------------------------------------------- */
+.alpine-docs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.alpine-docs__card {
+  border: 1px solid var(--doc-border);
+  background: var(--doc-surface);
+  border-radius: var(--doc-radius);
+  padding: 18px;
+  box-shadow: var(--doc-shadow);
+}
+.alpine-docs__card h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.alpine-docs__card p {
+  margin: 0;
+  color: var(--doc-muted);
+  font-size: 14px;
+}
+.alpine-docs__card-emoji {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+/* ---- Steps ----------------------------------------------------- */
+.alpine-docs__steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 18px 0;
+}
+.alpine-docs__steps > li {
+  position: relative;
+  counter-increment: step;
+  padding: 0 0 6px 44px;
+  margin-bottom: 16px;
+}
+.alpine-docs__steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--doc-primary), var(--doc-primary-2));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+.alpine-docs__step-title {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---- Inline code ----------------------------------------------- */
+.alpine-docs :not(pre) > code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: var(--doc-bg-soft);
+  border: 1px solid var(--doc-border);
+  border-radius: 6px;
+  padding: 1px 6px;
+  color: var(--doc-accent);
+}
+
+/* ---- Code block ------------------------------------------------ */
+.alpine-docs__code {
+  position: relative;
+  margin: 14px 0 22px;
+  border-radius: var(--doc-radius);
+  border: 1px solid var(--doc-code-border);
+  background: var(--doc-code-bg);
+  overflow: hidden;
+}
+.alpine-docs__code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px 8px 14px;
+  border-bottom: 1px solid var(--doc-code-border);
+}
+.alpine-docs__code-lang {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #8b93a7;
+  text-transform: uppercase;
+}
+.alpine-docs__copy {
+  border: 1px solid var(--doc-code-border);
+  background: transparent;
+  color: #c2c8d6;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.alpine-docs__copy:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+.alpine-docs__copy.is-copied {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.4);
+}
+.alpine-docs__code pre {
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+}
+.alpine-docs__code code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--doc-code-text);
+  white-space: pre;
+}
+
+/* ---- Callout --------------------------------------------------- */
+.alpine-docs__callout {
+  display: flex;
+  gap: 12px;
+  border-radius: var(--doc-radius);
+  padding: 14px 16px;
+  margin: 18px 0;
+  border: 1px solid color-mix(in srgb, var(--doc-primary) 30%, var(--doc-border));
+  background: color-mix(in srgb, var(--doc-primary) 7%, transparent);
+}
+.alpine-docs__callout--warn {
+  border-color: color-mix(in srgb, #f59e0b 45%, var(--doc-border));
+  background: color-mix(in srgb, #f59e0b 10%, transparent);
+}
+.alpine-docs__callout-icon {
+  font-size: 18px;
+  line-height: 1.4;
+}
+.alpine-docs__callout p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ---- Tables ---------------------------------------------------- */
+.alpine-docs__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 22px;
+  font-size: 14px;
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  overflow: hidden;
+}
+.alpine-docs__table th,
+.alpine-docs__table td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--doc-border);
+}
+.alpine-docs__table th {
+  background: var(--doc-bg-soft);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--doc-muted);
+}
+.alpine-docs__table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- File tree ------------------------------------------------- */
+.alpine-docs__tree {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--doc-text);
+  background: var(--doc-bg-soft);
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  padding: 16px 18px;
+  margin: 14px 0 22px;
+  white-space: pre;
+  overflow-x: auto;
+}
+.alpine-docs__tree .c {
+  color: var(--doc-muted);
+}
+
+/* ---- Footer ---------------------------------------------------- */
+.alpine-docs__footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--doc-border);
+  color: var(--doc-muted);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---- Responsive ------------------------------------------------ */
+@media (max-width: 880px) {
+  .alpine-docs__shell {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .alpine-docs__sidebar {
+    position: static;
+    height: auto;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--doc-border);
+  }
+  .alpine-docs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .alpine-docs__nav-group-title {
+    width: 100%;
+    margin: 10px 12px 2px;
+  }
+}

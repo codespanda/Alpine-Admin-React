@@ -1,4 +1,11 @@
+import { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+
+// ─── DOCS (optional, self-contained — safe to delete) ──────────────
+// Template documentation. To remove: delete `src/docs` and this block
+// plus the <Route path="/docs"> line below.
+const DocsPage = lazy(() => import('@/docs/DocsPage'));
+// ───────────────────────────────────────────────────────────────────
 
 import { AdminLayout } from '@/components/layouts/admin-layout';
 import { AuthLayout } from '@/components/layouts/auth-layout';
@@ -96,6 +103,9 @@ export default function App() {
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>
+
+      {/* DOCS (optional — delete src/docs folder + this line to remove) */}
+      <Route path="/docs" element={<Suspense fallback={null}><DocsPage /></Suspense>} />
 
       {/* Standalone */}
       <Route path="/error-500" element={<Error500Page />} />
