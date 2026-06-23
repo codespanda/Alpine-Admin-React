@@ -3,6 +3,7 @@
  * Depends only on React — nothing from the rest of the app.
  */
 import { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
 
 export function CodeBlock({ code, lang = 'bash' }: { code: string; lang?: string }) {
   const [copied, setCopied] = useState(false);
@@ -26,7 +27,8 @@ export function CodeBlock({ code, lang = 'bash' }: { code: string; lang?: string
           onClick={copy}
           className={`alpine-docs__copy${copied ? ' is-copied' : ''}`}
         >
-          {copied ? '✓ Copied' : 'Copy'}
+          {copied ? <Check size={14} /> : <Copy size={14} />}
+          {copied ? 'Copied' : 'Copy'}
         </button>
       </div>
       <pre>
