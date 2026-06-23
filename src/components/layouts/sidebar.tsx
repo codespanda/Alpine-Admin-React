@@ -134,10 +134,10 @@ const navigation: NavSection[] = [
   {
     title: 'PAGES',
     items: [
-      { label: 'Login', href: '/login', icon: LogIn },
-      { label: 'Register', href: '/register', icon: UserPlus },
-      { label: 'Forgot Password', href: '/forgot-password', icon: KeyRound },
-      { label: 'Verify Email', href: '/verify-email', icon: MailCheck },
+      { label: 'Login', href: '/login', icon: LogIn, newTab: true },
+      { label: 'Register', href: '/register', icon: UserPlus, newTab: true },
+      { label: 'Forgot Password', href: '/forgot-password', icon: KeyRound, newTab: true },
+      { label: 'Verify Email', href: '/verify-email', icon: MailCheck, newTab: true },
       { label: 'Error 500', href: '/error-500', icon: ShieldAlert, newTab: true },
       { label: 'Not Found', href: '/not-found-demo', icon: FileQuestion, newTab: true },
     ],
