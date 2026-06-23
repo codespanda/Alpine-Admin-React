@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la && echo \"---PARENT---\" && ls -la ..)",
+      "Bash(rm -f \"src/app/layout.tsx\" \"src/app/page.tsx\" \"src/app/\\(admin\\)/layout.tsx\" \"src/app/\\(auth\\)/layout.tsx\")",
+      "Bash(rm -f next.config.ts next-env.d.ts)",
+      "Bash(rm -rf .next)",
+      "Bash(npx vite *)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT:$?\")",
+      "PowerShell(git -C \"D:\\\\Snnipets\\\\admin-react\" status 2>&1)",
+      "PowerShell(git -C \"D:\\\\Snnipets\\\\admin-react\" remote -v 2>&1)",
+      "PowerShell(gh auth status 2>&1)",
+      "PowerShell(cd \"D:\\\\Snnipets\\\\admin-react\"; git init; git config user.email \"ramkumar897003@gmail.com\"; git config user.name \"codespanda\"; git branch -M main; git add -A; git status --short | Select-Object -First 20; echo \"---COUNT---\"; \\(git status --short | Measure-Object -Line\\).Lines)"
+    ]
+  }
+}
