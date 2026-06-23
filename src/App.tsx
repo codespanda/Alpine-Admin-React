@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 // ─── DOCS (optional, self-contained — safe to delete) ──────────────
 // Template documentation. To remove: delete `src/docs` and this block
@@ -58,7 +58,10 @@ import NotFound from '@/app/not-found';
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      {/* DOCS: landing page serves the template documentation.
+          To restore the app default, replace this with:
+          <Route path="/" element={<Navigate to="/dashboard" replace />} /> */}
+      <Route path="/" element={<Suspense fallback={null}><DocsPage /></Suspense>} />
 
       {/* Admin */}
       <Route element={<AdminLayout><Outlet /></AdminLayout>}>

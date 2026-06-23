@@ -222,6 +222,12 @@
   max-width: 60ch;
   margin: 0;
 }
+.alpine-docs__hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
 
 /* ---- Sections -------------------------------------------------- */
 .alpine-docs__section {

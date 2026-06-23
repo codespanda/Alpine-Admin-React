@@ -80,6 +80,10 @@ export default function DocsPage() {
   const allIds = NAV.flatMap((g) => g.items.map((i) => i.id));
   const active = useActiveSection(allIds);
 
+  // Respect the Vite base path so it works in dev ("/dashboard") and on
+  // GitHub Pages ("/Alpine-Admin-React/dashboard").
+  const dashboardHref = `${import.meta.env.BASE_URL}dashboard`.replace(/\/{2,}/g, '/');
+
   return (
     <div className={`alpine-docs${dark ? ' dark' : ''}`}>
       <div className="alpine-docs__shell">
@@ -116,8 +120,13 @@ export default function DocsPage() {
               <button className="alpine-docs__btn" onClick={toggleTheme} type="button">
                 {dark ? '☀️ Light' : '🌙 Dark'}
               </button>
-              <a className="alpine-docs__btn alpine-docs__btn--primary" href="#quick-start">
-                Get started →
+              <a
+                className="alpine-docs__btn alpine-docs__btn--primary"
+                href={dashboardHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Dashboard ↗
               </a>
             </div>
           </div>
@@ -133,6 +142,19 @@ export default function DocsPage() {
               component library — a modern employee-management dashboard built on React 19, Vite,
               Tailwind v4 and shadcn/ui.
             </p>
+            <div className="alpine-docs__hero-cta">
+              <a
+                className="alpine-docs__btn alpine-docs__btn--primary"
+                href={dashboardHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🚀 Open the live dashboard ↗
+              </a>
+              <a className="alpine-docs__btn" href="#quick-start">
+                Read the quick start →
+              </a>
+            </div>
           </header>
 
           {/* Overview */}
