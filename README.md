@@ -6,8 +6,6 @@ A React admin panel built with [Vite](https://vite.dev) and [react-router-dom](h
 
 ## Live Demo
 
-🔗 **[codespanda.github.io](https://codespanda.github.io)**
-
 - **Docs / landing:** [codespanda.github.io/Alpine-Admin-React](https://codespanda.github.io/Alpine-Admin-React/)
 - **Dashboard:** [codespanda.github.io/Alpine-Admin-React/dashboard](https://codespanda.github.io/Alpine-Admin-React/dashboard)
 
