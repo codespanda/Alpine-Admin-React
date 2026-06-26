@@ -2,6 +2,8 @@
 
 A React admin panel built with [Vite](https://vite.dev) and [react-router-dom](https://reactrouter.com). Originally converted from a Next.js (App Router) project.
 
+![Alpine Admin dashboard](public/dashboard.png)
+
 ## Live Demo
 
 🔗 **[codespanda.github.io](https://codespanda.github.io)**
