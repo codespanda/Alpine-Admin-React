@@ -119,7 +119,7 @@ export default function LeavesPage() {
       id: `lv-${Date.now()}`,
       employeeId: 'emp-1',
       employeeName: 'Alice Johnson',
-      employeeAvatar: '/avatars/alice.jpg',
+      employeeAvatar: `${import.meta.env.BASE_URL}avatars/alice.jpg`,
       type: data.type,
       startDate: data.startDate,
       endDate: data.endDate,

@@ -89,7 +89,7 @@ function DepartmentCard({ department, onEdit, onDelete }: DepartmentCardProps) {
           <div className="flex items-center gap-2.5">
             <Avatar className="size-8">
               <AvatarImage
-                src={`/avatars/${department.headOfDepartment
+                src={`${import.meta.env.BASE_URL}avatars/${department.headOfDepartment
                   .split(' ')[0]
                   .toLowerCase()}.jpg`}
                 alt={department.headOfDepartment}

@@ -317,7 +317,7 @@ export default function AttendancePage() {
                           <div className="flex items-center gap-3">
                             <Avatar className="size-8">
                               <AvatarImage
-                                src={`/avatars/${record.employeeName
+                                src={`${import.meta.env.BASE_URL}avatars/${record.employeeName
                                   .split(' ')[0]
                                   .toLowerCase()}.jpg`}
                                 alt={record.employeeName}
