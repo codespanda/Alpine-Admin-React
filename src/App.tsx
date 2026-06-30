@@ -2,11 +2,9 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 // ─── DOCS (optional, self-contained — safe to delete) ──────────────
-// Template documentation. To remove:
-//   1. delete `src/docs/`
-//   2. remove this block + the two DOCS routes below
-//   3. change the root "/" route to <Navigate to="/dashboard" replace />
-const DocsApp = lazy(() => import('@/docs/DocsApp'));
+// Template documentation. To remove: delete `src/docs` and this block
+// plus the <Route path="/docs"> line below.
+const DocsPage = lazy(() => import('@/docs/DocsPage'));
 // ───────────────────────────────────────────────────────────────────
 
 import { AdminLayout } from '@/components/layouts/admin-layout';
@@ -63,7 +61,7 @@ export default function App() {
       {/* DOCS: landing page serves the template documentation.
           To restore the app default, replace this with:
           <Route path="/" element={<Navigate to="/dashboard" replace />} /> */}
-      <Route path="/" element={<Suspense fallback={null}><DocsApp /></Suspense>} />
+      <Route path="/" element={<Suspense fallback={null}><DocsPage /></Suspense>} />
 
       {/* Admin */}
       <Route element={<AdminLayout><Outlet /></AdminLayout>}>
@@ -109,8 +107,8 @@ export default function App() {
         <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>
 
-      {/* DOCS (optional — delete src/docs folder + these lines to remove) */}
-      <Route path="/docs/*" element={<Suspense fallback={null}><DocsApp /></Suspense>} />
+      {/* DOCS (optional — delete src/docs folder + this line to remove) */}
+      <Route path="/docs" element={<Suspense fallback={null}><DocsPage /></Suspense>} />
 
       {/* Standalone */}
       <Route path="/error-500" element={<Error500Page />} />
